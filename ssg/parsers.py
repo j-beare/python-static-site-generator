@@ -4,7 +4,7 @@ import shutil
 
 class Parser:
     
-    extensions = List[str]
+    extensions: List[str] = []
 
     def valid_extension(self, extension):
         return extension in self.extensions
@@ -23,7 +23,7 @@ class Parser:
             file.close()
 
     def copy(self,path,source,dest):
-        shutil.copy2(source, dest / path.relative_to(self.source))
+        shutil.copy2(path, dest / path.relative_to(self.source))
 
 
 class ResourceParser(Parser):
